@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Haploinsufficiency — Elena Evans</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Fira+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--meadow-deep:#4a7c40;--sage-pale:#deecd7;--sun:#f5c46a;--sun-light:#fdf0c8;--bark:#4a3420;--soil:#7a5c3a;--stone:#8a8070;--cream:#faf7f0;--amber:#c4862a}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--bark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(250,247,240,0.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--sage-pale)}
+.nav-name{font-family:'Lora',serif;font-size:1rem;font-weight:400;color:var(--meadow-deep);text-decoration:none}
+.back-link{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;font-weight:500;color:var(--stone);text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--meadow-deep)}
+.hero{padding:8rem 4rem 4rem;max-width:780px;margin:0 auto}
+.sec-chip{display:inline-block;background:var(--sage-pale);color:var(--meadow-deep);font-family:'Fira Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2rem;margin-bottom:1.2rem}
+.article-title{font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--bark);margin-bottom:1rem}
+.article-title em{font-style:italic;color:var(--meadow-deep)}
+.article-meta{display:flex;align-items:center;gap:1rem;font-family:'Fira Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--stone);text-transform:uppercase;margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1.5px solid var(--sage-pale)}
+.article-body{max-width:680px;margin:0 auto;padding:0 4rem 4rem}
+.article-body p{font-size:1.02rem;line-height:1.95;color:var(--soil);margin-bottom:1.6rem;font-weight:400}
+.article-body p:first-child::first-letter{font-family:'Lora',serif;font-size:3.2rem;font-weight:400;color:var(--meadow-deep);float:left;line-height:0.85;margin-right:0.1em;margin-top:0.1em}
+.pullquote{margin:2.5rem 0;padding:1.5rem 2rem;background:var(--sun-light);border-left:3px solid var(--sun);border-radius:0 0.75rem 0.75rem 0}
+.pullquote p{font-family:'Lora',serif;font-style:italic;font-size:1.12rem;color:var(--soil);line-height:1.7;margin:0}
+.term{font-family:'Fira Mono',monospace;font-size:0.88rem;background:var(--sage-pale);color:var(--meadow-deep);padding:0.1rem 0.4rem;border-radius:0.25rem}
+.explainer-box{margin:2.5rem 0;background:#fff;border:1.5px solid var(--sage-pale);border-radius:1rem;padding:1.6rem 2rem}
+.explainer-box h3{font-family:'Lora',serif;font-size:1rem;font-weight:500;color:var(--bark);margin-bottom:1rem}
+.explainer-box ul{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.explainer-box li{display:flex;align-items:flex-start;gap:0.7rem;font-size:0.9rem;color:var(--soil);line-height:1.7}
+.li-leaf{flex-shrink:0;margin-top:3px}
+.article-footer{max-width:680px;margin:3rem auto 0;padding:2rem 4rem;border-top:1.5px solid var(--sage-pale);display:flex;align-items:center;justify-content:space-between}
+.footer-leaf{display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:var(--stone)}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.5rem;border-radius:2rem;border:1.5px solid var(--meadow-deep);color:var(--meadow-deep);font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.back-btn:hover{background:var(--meadow-deep);color:#fff}
+footer{margin-top:5rem;background:var(--bark);color:rgba(250,247,240,0.45);padding:1.2rem 4rem;display:flex;justify-content:space-between;font-family:'Fira Mono',monospace;font-size:0.62rem;letter-spacing:0.1em}
+@media(max-width:700px){nav{padding:1rem 1.5rem}.hero{padding:6rem 1.5rem 2rem}.article-body{padding:0 1.5rem 3rem}.article-footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;align-items:flex-start}footer{flex-direction:column;gap:0.4rem;padding:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Elena Evans</a>
+  <a href="index.html#research" class="back-link"><span>←</span> Back to research</a>
+</nav>
+
+<div class="hero">
+  <div class="sec-chip">Lay summary · Review article</div>
+  <h1 class="article-title">When <em>half</em> isn't enough</h1>
+  <div class="article-meta">
+    <div style="display:flex;align-items:center;gap:0.4rem">
+      <svg width="12" height="15" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/></svg>
+      Elena Evans
+    </div>
+    <span>·</span>
+    <span>Haploinsufficiency · Drug discovery</span>
+    <span>·</span>
+    <span>Published in Drug Discovery Today, 2024</span>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>When Dr. Zheng asked me if I was interested in writing a review on treatment approaches to haploinsufficiency, I wasn't even sure I knew what that was.</p>
+
+  <p>Sure, I had been studying OI — a genetic disorder — and I had taken a genetics class in college. But that did not mean I knew everything about genetics. One of the things I've struggled with, especially as a graduate student, is accepting that I can't know everything.</p>
+
+  <p>I was honored that Dr. Zheng asked. I was also nervous. I didn't have a lot of training in drug development, and I was not a genetics expert. But I knew how to search through published papers and find examples. Dr. Zheng had deep expertise in therapeutic development, and we worked with a genetics expert to make sure our reasoning was sound.</p>
+
+  <div class="pullquote">
+    <p>Haploinsufficiency means ½ is not sufficient. It's one of those words that, once you understand it, you start seeing everywhere.</p>
+  </div>
+
+  <p>Everyone gets two copies of each chromosome, and therefore two copies of each gene. Sometimes you can have a defect in one copy that doesn't disrupt the overall function — there's still one good copy working, so no big deal.</p>
+
+  <p>But in some cases, the damage is too much. The body can't maintain normal operations without two fully functional copies of the gene. That's <span class="term">haploinsufficiency</span>.</p>
+
+  <p>It's considered a dominant loss-of-function condition. In other words: the defect only needs to affect one copy of the gene to cause problems (dominant), and it decreases the amount of functional protein being made (loss-of-function).</p>
+
+  <div class="explainer-box">
+    <h3>So how do you fix it? It depends on the gene — but the general strategies are:</h3>
+    <ul>
+      <li>
+        <svg class="li-leaf" width="12" height="15" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/></svg>
+        <span>Increase the amount of RNA being made from the remaining healthy gene copy</span>
+      </li>
+      <li>
+        <svg class="li-leaf" width="12" height="15" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(10deg)"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/></svg>
+        <span>Increase the amount of functional protein being produced</span>
+      </li>
+      <li>
+        <svg class="li-leaf" width="12" height="15" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(-8deg)"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/></svg>
+        <span>Protect the protein that is being made from being broken down too quickly</span>
+      </li>
+    </ul>
+  </div>
+
+  <p>The goal for all of these approaches is essentially the same: use the copy of the gene that doesn't have a defect to rescue the function lost by the damaged copy.</p>
+
+  <p>This review helped me understand not just haploinsufficiency but also something about how science gets done. You don't have to be an expert in everything. You have to be willing to learn, ask the right people the right questions, and be honest about what you don't know.</p>
+
+</div>
+
+<div class="article-footer">
+  <div class="footer-leaf">
+    <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.9"/><path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.7" fill="none"/><path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.7" fill="none"/></svg>
+    Published in Drug Discovery Today, 2024
+  </div>
+  <a href="index.html#research" class="back-btn">← Back to research</a>
+</div>
+
+<footer>
+  <span>© 2025 Elena Evans · Human Genetics, Vanderbilt University</span>
+  <span>Made with curiosity &amp; care</span>
+</footer>
+
+</body>
+</html>

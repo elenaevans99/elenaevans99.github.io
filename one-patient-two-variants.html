@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>One patient, two variants — Elena Evans</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Fira+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--meadow-deep:#4a7c40;--sage-pale:#deecd7;--sun:#f5c46a;--sun-light:#fdf0c8;--bark:#4a3420;--soil:#7a5c3a;--stone:#8a8070;--cream:#faf7f0;--sand:#f0e6d0;--amber:#c4862a;--sky-pale:#edf5fb}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--bark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(250,247,240,0.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--sage-pale)}
+.nav-name{font-family:'Lora',serif;font-size:1rem;font-weight:400;color:var(--meadow-deep);text-decoration:none}
+.back-link{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;font-weight:500;color:var(--stone);text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--meadow-deep)}
+.back-arrow{font-size:0.9rem}
+.hero{padding:8rem 4rem 4rem;max-width:780px;margin:0 auto}
+.sec-chip{display:inline-block;background:var(--sage-pale);color:var(--meadow-deep);font-family:'Fira Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2rem;margin-bottom:1.2rem}
+.article-title{font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--bark);margin-bottom:1rem}
+.article-title em{font-style:italic;color:var(--meadow-deep)}
+.article-meta{display:flex;align-items:center;gap:1rem;font-family:'Fira Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--stone);text-transform:uppercase;margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1.5px solid var(--sage-pale)}
+.meta-leaf{display:flex;align-items:center;gap:0.4rem}
+.article-body{max-width:680px;margin:0 auto}
+.article-body p{font-size:1.02rem;line-height:1.95;color:var(--soil);margin-bottom:1.6rem;font-weight:400}
+.article-body p:first-child::first-letter{font-family:'Lora',serif;font-size:3.2rem;font-weight:400;color:var(--meadow-deep);float:left;line-height:0.85;margin-right:0.1em;margin-top:0.1em}
+.pullquote{margin:2.5rem 0;padding:1.5rem 2rem;background:var(--sun-light);border-left:3px solid var(--sun);border-radius:0 0.75rem 0.75rem 0}
+.pullquote p{font-family:'Lora',serif;font-style:italic;font-size:1.12rem;color:var(--soil);line-height:1.7;margin:0}
+.term{font-family:'Fira Mono',monospace;font-size:0.88rem;background:var(--sage-pale);color:var(--meadow-deep);padding:0.1rem 0.4rem;border-radius:0.25rem}
+.article-footer{max-width:680px;margin:3rem auto 0;padding:2rem 0;border-top:1.5px solid var(--sage-pale);display:flex;align-items:center;justify-content:space-between;flex-wrap:gap}
+.footer-leaf{display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:var(--stone)}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.5rem;border-radius:2rem;border:1.5px solid var(--meadow-deep);color:var(--meadow-deep);font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.back-btn:hover{background:var(--meadow-deep);color:#fff}
+footer{margin-top:5rem;background:var(--bark);color:rgba(250,247,240,0.45);padding:1.2rem 4rem;display:flex;justify-content:space-between;font-family:'Fira Mono',monospace;font-size:0.62rem;letter-spacing:0.1em}
+@media(max-width:700px){nav{padding:1rem 1.5rem}.hero{padding:6rem 1.5rem 2rem}.article-body p{font-size:0.95rem}footer{flex-direction:column;gap:0.4rem;padding:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Elena Evans</a>
+  <a href="index.html#research" class="back-link"><span class="back-arrow">←</span> Back to research</a>
+</nav>
+
+<div class="hero">
+  <div class="sec-chip">Lay summary · Rare disease</div>
+  <h1 class="article-title">One patient, <em>two variants</em></h1>
+  <div class="article-meta">
+    <div class="meta-leaf">
+      <svg width="12" height="15" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/></svg>
+      Elena Evans
+    </div>
+    <span>·</span>
+    <span>Osteogenesis imperfecta · NIH post-bac</span>
+    <span>·</span>
+    <span>Published in JBMR Plus, 2025</span>
+  </div>
+</div>
+
+<div class="article-body" style="padding:0 4rem 4rem">
+
+  <p>The first project I took on for my post-bac (post bachelor's degree) research was focused on a little girl we'll call Emily.</p>
+
+  <p>Emily had a change in her DNA that no one in the world was known to have. It was in a gene called <span class="term">COL1A2</span>, which is a collagen gene. Collagen helps make tissues strong, especially bones. Emily's unique variant was right where RNA gets spliced — cut and pasted — so it was unclear what this might do. I did experiments using cells we'd grown from Emily's skin to see how the variant affected the cells' ability to properly move collagen outside of the cell.</p>
+
+  <p>It turned out that Emily's cells were able to make collagen, but it wasn't leaving the cell as well as it should. Plus, Emily was making collagen protein but some of it was getting cut short.</p>
+
+  <div class="pullquote">
+    <p>This might have been the end of the story. We figured out what Emily's genetic variant did to disrupt collagen. But Emily's symptoms felt more complicated.</p>
+  </div>
+
+  <p>I decided one day to go back and read the genetic test results I'd been handed my first week of work. This was maybe eight months into my post-bac working on osteogenesis imperfecta, or <span class="term">OI</span>.</p>
+
+  <p>OI is a rare bone disease that can cause bones to break just from being held as a baby — or it can be so mild that you don't find out you have it until adulthood. There are a lot of genes that can cause OI if there is a mutation that disrupts some cellular function.</p>
+
+  <p>Weirdly enough, there are families where multiple people have OI because of the same mutation and yet they have very different experiences. Their phenotypes are very different. Sometimes one person has a lot more symptoms than all the others. In one family the girls had little to no symptoms, but the boys were wheelchair bound — and there was no known reason this rare disorder would present differently in males and females.</p>
+
+  <p>When I went back to Emily's test results, I realized she carried another variant we had all ignored. We ignored it because it was a dreaded <span class="term">VUS</span>: variant of unknown significance. It's one of my least favorite phrases. It means there's a DNA change but we don't know if it's harmless or pathogenic — capable of causing disease.</p>
+
+  <p>Emily's VUS was in a calcium channel gene called <span class="term">TRPV4</span>, and calcium and bone go hand in hand. The more I looked into this gene, the more I thought it might be playing a role in Emily's symptoms. TRPV4 plays a role in cartilage — the softer and spongier tissue that makes up most of a shark's skeleton.</p>
+
+  <p>Emily had a few clinical characteristics of a cartilage disorder, which didn't really match OI. Her lower limbs were longer than her upper limbs, in both her arms and legs. Her bone age, measured from X-rays, was far behind her biological age.</p>
+
+  <p>So I presented my case to my PI — my principal investigator, my boss. I thought the TRPV4 VUS might be contributing to some of Emily's symptoms, on top of the OI caused by her COL1A2 mutation.</p>
+
+  <p>She agreed it was worth looking into, so we partnered with a lab at the Dental and Craniofacial Institute to evaluate how cells behaved when they had Emily's TRPV4 variant. We found that their ability to transport calcium was altered. Emily's variant of unknown significance might be significantly affecting her health.</p>
+
+  <p>We don't know for sure whether people with Emily's TRPV4 VUS would have noticeable symptoms if they didn't also have her COL1A2 mutation.</p>
+
+  <div class="pullquote">
+    <p>That's one of the frustrating parts of science. You have to keep exploring and gathering evidence before you can have definitive answers. And even then, sometimes you find out later that you were wrong.</p>
+  </div>
+
+  <div class="article-footer">
+    <div class="footer-leaf">
+      <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.9"/><path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.7" fill="none"/><path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.7" fill="none"/></svg>
+      Published in JBMR Plus, 2025
+    </div>
+    <a href="index.html#research" class="back-btn">← Back to research</a>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025 Elena Evans · Human Genetics, Vanderbilt University</span>
+  <span>Made with curiosity &amp; care</span>
+</footer>
+
+</body>
+</html>

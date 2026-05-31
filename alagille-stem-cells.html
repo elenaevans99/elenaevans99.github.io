@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blood cells to investigate a rare liver disease — Elena Evans</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Fira+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--meadow-deep:#4a7c40;--sage-pale:#deecd7;--sun:#f5c46a;--sun-light:#fdf0c8;--bark:#4a3420;--soil:#7a5c3a;--stone:#8a8070;--cream:#faf7f0;--amber:#c4862a;--sky-pale:#edf5fb;--sky:#c8e0f0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--bark);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(250,247,240,0.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--sage-pale)}
+.nav-name{font-family:'Lora',serif;font-size:1rem;font-weight:400;color:var(--meadow-deep);text-decoration:none}
+.back-link{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;font-weight:500;color:var(--stone);text-decoration:none;transition:color 0.2s}
+.back-link:hover{color:var(--meadow-deep)}
+.hero{padding:8rem 4rem 4rem;max-width:780px;margin:0 auto}
+.sec-chip{display:inline-block;background:var(--sage-pale);color:var(--meadow-deep);font-family:'Fira Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2rem;margin-bottom:1.2rem}
+.article-title{font-family:'Lora',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.2;color:var(--bark);margin-bottom:1rem}
+.article-title em{font-style:italic;color:var(--meadow-deep)}
+.article-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-family:'Fira Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;color:var(--stone);text-transform:uppercase;margin-bottom:3rem;padding-bottom:1.5rem;border-bottom:1.5px solid var(--sage-pale)}
+.article-body{max-width:680px;margin:0 auto;padding:0 4rem 4rem}
+.article-body p{font-size:1.02rem;line-height:1.95;color:var(--soil);margin-bottom:1.6rem;font-weight:400}
+.article-body p:first-child::first-letter{font-family:'Lora',serif;font-size:3.2rem;font-weight:400;color:var(--meadow-deep);float:left;line-height:0.85;margin-right:0.1em;margin-top:0.1em}
+.pullquote{margin:2.5rem 0;padding:1.5rem 2rem;background:var(--sun-light);border-left:3px solid var(--sun);border-radius:0 0.75rem 0.75rem 0}
+.pullquote p{font-family:'Lora',serif;font-style:italic;font-size:1.12rem;color:var(--soil);line-height:1.7;margin:0}
+.term{font-family:'Fira Mono',monospace;font-size:0.88rem;background:var(--sage-pale);color:var(--meadow-deep);padding:0.1rem 0.4rem;border-radius:0.25rem}
+.aside-box{margin:2.5rem 0;background:var(--sky-pale);border:1.5px solid var(--sky);border-radius:1rem;padding:1.4rem 1.8rem}
+.aside-box p{font-size:0.9rem;color:var(--soil);line-height:1.8;margin:0}
+.aside-box p+p{margin-top:0.8rem}
+.aside-label{font-family:'Fira Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--meadow-deep);margin-bottom:0.6rem}
+.article-footer{max-width:680px;margin:3rem auto 0;padding:2rem 4rem;border-top:1.5px solid var(--sage-pale);display:flex;align-items:center;justify-content:space-between}
+.footer-leaf{display:flex;align-items:center;gap:0.6rem;font-size:0.82rem;color:var(--stone)}
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.5rem;border-radius:2rem;border:1.5px solid var(--meadow-deep);color:var(--meadow-deep);font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s}
+.back-btn:hover{background:var(--meadow-deep);color:#fff}
+footer{margin-top:5rem;background:var(--bark);color:rgba(250,247,240,0.45);padding:1.2rem 4rem;display:flex;justify-content:space-between;font-family:'Fira Mono',monospace;font-size:0.62rem;letter-spacing:0.1em}
+@media(max-width:700px){nav{padding:1rem 1.5rem}.hero{padding:6rem 1.5rem 2rem}.article-body{padding:0 1.5rem 3rem}.article-footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;align-items:flex-start}footer{flex-direction:column;gap:0.4rem;padding:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Elena Evans</a>
+  <a href="index.html#research" class="back-link"><span>←</span> Back to research</a>
+</nav>
+
+<div class="hero">
+  <div class="sec-chip">Lay summary · iPSC biology</div>
+  <h1 class="article-title">Blood cells to investigate a <em>rare liver disease</em></h1>
+  <div class="article-meta">
+    <div style="display:flex;align-items:center;gap:0.4rem">
+      <svg width="12" height="15" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/></svg>
+      Elena Evans
+    </div>
+    <span>·</span>
+    <span>Alagille syndrome · iPSC &amp; CRISPR</span>
+    <span>·</span>
+    <span>Published in Stem Cell Research, 2025</span>
+  </div>
+</div>
+
+<div class="article-body">
+
+  <p>One of the ways that science is trying to use non-animal models — and really match the human body whenever possible — is to use stem cells.</p>
+
+  <p>For this project, cells from two patients' blood were turned into <span class="term">inducible pluripotent stem cells</span>, or iPSCs. This just means they can be grown into different cell types, and even organoids.</p>
+
+  <div class="aside-box">
+    <div class="aside-label">What's an organoid?</div>
+    <p>Organoids are pretty much what they sound like — tiny versions of organs grown in a plastic dish.</p>
+    <p>Liver organoids don't actually grow in the shape of little pink livers, like I pictured when Grey's Anatomy mentioned it. They're usually spherical blobs. But they mimic the biological architecture of a real liver remarkably well.</p>
+  </div>
+
+  <p>Before you can actually do experiments on organoids — like testing treatments — you have to make sure they're actually behaving like they should. Cells have a knack for doing what they shouldn't. And because these cells have so much potential, they can become a lot of things. So we have to check.</p>
+
+  <p>There were two lines of cells: one from a little girl and one from a little boy. Both had a variant in the gene <span class="term">JAG1</span>, which caused <span class="term">Alagille syndrome</span> — an autosomal dominant disorder, meaning having a defect in just one copy of the gene is enough to cause disease. It is very dangerous for the liver but can also affect bones in the spine or face.</p>
+
+  <div class="pullquote">
+    <p>We checked that these cell lines had all the markers that indicated they were inducible and pluripotent. We checked that they had the right number of chromosomes. We made sure they hadn't become contaminated. Then we deposited them into a shared resource so other researchers could use them too.</p>
+  </div>
+
+  <p>The next thing I worked on was using <span class="term">CRISPR-Cas9</span> to correct the defect in each cell line, then confirm they were still behaving as expected. CRISPR-Cas9 is essentially a molecular editing tool that can change genetic code — but it's not always perfect, so verification is a critical step.</p>
+
+  <p>These corrected, isogenic cell lines give researchers a powerful tool: you can compare the diseased version of a cell directly with the corrected version, with everything else held equal. That's how you start to test whether a potential treatment actually works — and why building and validating these lines carefully matters so much.</p>
+
+</div>
+
+<div class="article-footer">
+  <div class="footer-leaf">
+    <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.4" fill="none"/><line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.9"/><path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.7" fill="none"/><path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.7" fill="none"/></svg>
+    Published in Stem Cell Research, 2025
+  </div>
+  <a href="index.html#research" class="back-btn">← Back to research</a>
+</div>
+
+<footer>
+  <span>© 2025 Elena Evans · Human Genetics, Vanderbilt University</span>
+  <span>Made with curiosity &amp; care</span>
+</footer>
+
+</body>
+</html>
