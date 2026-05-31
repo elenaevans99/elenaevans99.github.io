@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Elena Evans</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Fira+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sun:#f5c46a;--sun-light:#fdf0c8;
+  --meadow:#7aaa6e;--meadow-deep:#4a7c40;
+  --sage:#a8c49a;--sage-pale:#deecd7;
+  --sky:#c8e0f0;--sky-pale:#edf5fb;
+  --sand:#f0e6d0;--sand-deep:#d4b896;
+  --soil:#7a5c3a;--bark:#4a3420;
+  --stone:#8a8070;--ink:#2a2418;
+  --cream:#faf7f0;--white:#ffffff;
+  --amber:#c4862a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1rem 3rem;
+  background:rgba(250,247,240,0.94);backdrop-filter:blur(8px);
+  border-bottom:1.5px solid var(--sage-pale);
+}
+.nav-name{font-family:'Lora',serif;font-size:1rem;font-weight:400;color:var(--meadow-deep);text-decoration:none}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:0.8rem;font-weight:500;color:var(--stone);text-decoration:none;transition:color 0.2s;letter-spacing:0.02em}
+.nav-links a:hover{color:var(--meadow-deep)}
+
+/* LEAF SVG — reusable inline */
+.leaf{display:inline-block;flex-shrink:0}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  background:linear-gradient(160deg,var(--sky-pale) 0%,var(--sage-pale) 45%,var(--sun-light) 100%);
+  position:relative;overflow:hidden;padding:8rem 4rem 4rem;
+}
+.hero-content{max-width:600px;position:relative;z-index:2}
+.hero-tag{display:inline-block;background:var(--meadow-deep);color:var(--white);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:2rem;margin-bottom:1.5rem}
+.hero-hello{font-family:'Lora',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;line-height:1.25;color:var(--bark);margin-bottom:1rem}
+.hero-hello em{font-style:italic;color:var(--meadow-deep)}
+.hero-sub{font-size:0.97rem;font-weight:400;color:var(--soil);line-height:1.85;margin-bottom:2.5rem;max-width:500px}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{padding:0.8rem 1.8rem;border-radius:2rem;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.03em;text-decoration:none;cursor:pointer;border:2px solid transparent;transition:all 0.2s}
+.btn-green{background:var(--meadow-deep);color:var(--white)}
+.btn-green:hover{background:var(--meadow)}
+.btn-ghost{border-color:var(--meadow-deep);color:var(--meadow-deep);background:transparent}
+.btn-ghost:hover{background:var(--sage-pale)}
+.hero-art{position:absolute;right:-1rem;top:0;bottom:0;width:50%;opacity:0.88;pointer-events:none}
+
+/* SECTIONS */
+.section{padding:5.5rem 4rem}
+.sec-chip{display:inline-block;background:var(--sage-pale);color:var(--meadow-deep);font-family:'Fira Mono',monospace;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.3rem 0.8rem;border-radius:2rem;margin-bottom:1rem}
+.sec-h{font-family:'Lora',serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:400;color:var(--bark);margin-bottom:0.6rem;line-height:1.3}
+.sec-h em{font-style:italic;color:var(--meadow-deep)}
+.sec-intro{font-size:0.95rem;color:var(--soil);line-height:1.85;max-width:600px;margin-bottom:3rem;font-weight:400}
+
+/* ABOUT */
+.about-bg{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text p{font-size:0.95rem;font-weight:400;line-height:1.9;color:var(--soil);margin-bottom:1.2rem}
+.about-text p strong{color:var(--bark);font-weight:600}
+.patient-callout{margin:2rem 0;padding:1.4rem 1.6rem;background:var(--sun-light);border-left:3px solid var(--sun);border-radius:0 0.75rem 0.75rem 0}
+.patient-callout p{font-family:'Lora',serif;font-style:italic;font-size:1.02rem;color:var(--soil);line-height:1.7;margin:0}
+.about-side{display:flex;flex-direction:column;gap:1.1rem}
+.about-card{background:var(--cream);border:1.5px solid var(--sage-pale);border-radius:1rem;padding:1.3rem 1.5rem}
+.about-card-leaf{margin-bottom:0.6rem}
+.about-card h4{font-family:'Lora',serif;font-size:0.95rem;font-weight:500;color:var(--bark);margin-bottom:0.35rem}
+.about-card p{font-size:0.82rem;color:var(--stone);line-height:1.7}
+
+/* RESEARCH */
+.research-bg{background:var(--sage-pale)}
+.r-project{background:var(--white);border-radius:1rem;border:1.5px solid rgba(122,170,110,0.2);margin-bottom:1.5rem;overflow:hidden}
+.r-project-top{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.r-col{padding:1.8rem 2rem}
+.r-col-plain{background:var(--sky-pale);border-left:1.5px solid var(--sky);position:relative}
+.r-col-plain::before{content:'Plain language';position:absolute;top:1rem;right:1rem;font-family:'Fira Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--meadow-deep);background:var(--sage-pale);padding:0.2rem 0.5rem;border-radius:2rem}
+.r-area{font-family:'Fira Mono',monospace;font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--meadow-deep);margin-bottom:0.6rem}
+.r-project h3{font-family:'Lora',serif;font-size:1.05rem;font-weight:500;color:var(--bark);margin-bottom:0.7rem;line-height:1.35}
+.r-project p{font-size:0.85rem;color:var(--stone);line-height:1.8}
+.r-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-top:0.9rem}
+.r-tag{font-size:0.68rem;font-weight:600;background:var(--sage-pale);color:var(--meadow-deep);padding:0.18rem 0.55rem;border-radius:2rem}
+.r-why{margin-top:0.9rem;font-size:0.82rem;color:var(--meadow-deep);font-weight:600;display:flex;align-items:flex-start;gap:0.5rem}
+.zine-bar{background:var(--sun-light);border-top:1.5px solid rgba(245,196,106,0.4);padding:0.9rem 2rem;display:flex;align-items:center;gap:0.8rem}
+.zine-label{font-family:'Fira Mono',monospace;font-size:0.63rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--soil)}
+.zine-chip{background:var(--sand);color:var(--soil);font-family:'Fira Mono',monospace;font-size:0.65rem;padding:0.2rem 0.6rem;border-radius:2rem}
+
+/* CREATIVE */
+.creative-bg{background:var(--sand)}
+.creative-groups{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.creative-group{background:var(--white);border-radius:1rem;border:1.5px solid var(--sand-deep);overflow:hidden}
+.creative-group-header{padding:1.2rem 1.6rem;border-bottom:1.5px solid var(--sand-deep);display:flex;align-items:center;gap:0.8rem}
+.creative-group-header h3{font-family:'Lora',serif;font-size:1.1rem;font-weight:500;color:var(--bark)}
+.creative-items{padding:1rem 1.6rem;display:flex;flex-direction:column;gap:0.6rem}
+.creative-item{padding:0.8rem 0;border-bottom:1px solid var(--sage-pale);display:flex;align-items:flex-start;gap:0.8rem}
+.creative-item:last-child{border-bottom:none}
+.ci-leaf{flex-shrink:0;margin-top:0.2rem}
+.creative-item div{flex:1}
+.creative-item h4{font-family:'Lora',serif;font-size:0.92rem;font-weight:500;color:var(--bark);margin-bottom:0.2rem}
+.creative-item p{font-size:0.8rem;color:var(--stone);line-height:1.65}
+
+/* CONTACT */
+.contact-bg{background:linear-gradient(160deg,var(--meadow-deep) 0%,#2d5c25 100%);color:var(--white)}
+.contact-bg .sec-h{color:var(--white)}
+.contact-bg .sec-h em{color:var(--sun)}
+.contact-bg .sec-intro{color:rgba(255,255,255,0.72)}
+.contact-bg .sec-chip{background:rgba(255,255,255,0.15);color:var(--sun)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-warm{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:1rem;padding:1.4rem;margin-bottom:1.5rem}
+.contact-warm p{font-size:0.9rem;color:rgba(255,255,255,0.78);line-height:1.8}
+.link-list{display:flex;flex-direction:column;gap:0.5rem}
+.clink{display:flex;align-items:center;gap:1rem;text-decoration:none;color:rgba(255,255,255,0.72);font-size:0.88rem;padding:0.65rem 0;border-bottom:1px solid rgba(255,255,255,0.1);transition:color 0.2s}
+.clink:hover{color:var(--sun)}
+.clink-dot{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;flex-shrink:0;font-family:'Fira Mono',monospace;color:var(--sun)}
+.form-area{display:flex;flex-direction:column;gap:1rem}
+.form-area input,.form-area textarea{background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.2);border-radius:0.6rem;color:var(--white);font-family:'Nunito',sans-serif;font-size:0.88rem;font-weight:300;padding:0.8rem 1rem;width:100%;outline:none;transition:border-color 0.2s}
+.form-area input::placeholder,.form-area textarea::placeholder{color:rgba(255,255,255,0.36)}
+.form-area input:focus,.form-area textarea:focus{border-color:var(--sun)}
+.form-area textarea{resize:vertical;min-height:110px}
+.btn-sun{align-self:flex-start;padding:0.85rem 2rem;border-radius:2rem;background:var(--sun);color:var(--bark);font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;transition:opacity 0.2s}
+.btn-sun:hover{opacity:0.88}
+
+footer{background:var(--bark);color:rgba(250,247,240,0.45);padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;font-family:'Fira Mono',monospace;font-size:0.62rem;letter-spacing:0.1em}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}.nav-links{gap:1.2rem}
+  .hero{padding:6rem 1.5rem 3rem}.hero-art{display:none}
+  .about-grid,.contact-grid,.creative-groups{grid-template-columns:1fr;gap:2rem}
+  .r-project-top{grid-template-columns:1fr}
+  .r-col-plain{border-left:none;border-top:1.5px solid var(--sky)}
+  .r-col-plain::before{top:0.6rem}
+  .section{padding:3.5rem 1.5rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Elena Evans</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#creative">Creative</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">Biomedical Researcher · Human Genetics</div>
+    <h1 class="hero-hello">Hi, I'm <em>Elena</em>.<br>I study the biology<br>behind real lives.</h1>
+    <p class="hero-sub">
+      I'm a PhD student in Human Genetics at Vanderbilt, working at the intersection of genetics,
+      multi-omics, and rare and complex disease. Behind every dataset is a person waiting for answers —
+      and that's what keeps me going.
+    </p>
+    <div class="hero-cta">
+      <a href="#research" class="btn btn-green">See my research</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+  <!-- Botanical SVG illustration -->
+  <svg class="hero-art" viewBox="0 0 520 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <circle cx="380" cy="200" r="200" fill="rgba(245,196,106,0.18)"/>
+    <circle cx="300" cy="350" r="250" fill="rgba(122,170,110,0.12)"/>
+    <circle cx="420" cy="420" r="160" fill="rgba(200,224,240,0.2)"/>
+    <ellipse cx="260" cy="660" rx="220" ry="30" fill="rgba(122,170,110,0.18)"/>
+    <path d="M260 650 C258 580 268 500 255 420 C242 340 260 260 252 180 C244 100 260 50 260 20" stroke="rgba(74,124,64,0.55)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- Large leaves using fine-line style -->
+    <path d="M257 460 C310 430 370 435 395 400 C420 365 395 325 360 335 C325 345 300 380 257 460Z" stroke="rgba(74,124,64,0.5)" stroke-width="1" fill="none"/>
+    <line x1="257" y1="460" x2="370" y2="350" stroke="rgba(74,124,64,0.35)" stroke-width="0.7"/>
+    <path d="M300 420 C290 410 278 405 268 398" stroke="rgba(74,124,64,0.3)" stroke-width="0.5" fill="none"/>
+    <path d="M330 395 C320 385 310 380 302 373" stroke="rgba(74,124,64,0.3)" stroke-width="0.5" fill="none"/>
+    <path d="M254 380 C200 355 145 365 120 335 C95 305 115 268 150 275 C185 282 215 320 254 380Z" stroke="rgba(74,124,64,0.45)" stroke-width="1" fill="none"/>
+    <line x1="254" y1="380" x2="138" y2="300" stroke="rgba(74,124,64,0.3)" stroke-width="0.7"/>
+    <path d="M220 358 C210 348 198 344 188 338" stroke="rgba(74,124,64,0.28)" stroke-width="0.5" fill="none"/>
+    <path d="M255 290 C295 268 338 272 356 248 C374 224 356 196 328 202 C300 208 278 240 255 290Z" stroke="rgba(74,124,64,0.4)" stroke-width="0.9" fill="none"/>
+    <line x1="255" y1="290" x2="340" y2="210" stroke="rgba(74,124,64,0.28)" stroke-width="0.6"/>
+    <path d="M278 265 C285 255 292 250 300 244" stroke="rgba(74,124,64,0.25)" stroke-width="0.5" fill="none"/>
+    <path d="M253 230 C215 210 175 218 158 196 C141 174 156 148 182 155 C208 162 232 195 253 230Z" stroke="rgba(74,124,64,0.38)" stroke-width="0.9" fill="none"/>
+    <line x1="253" y1="230" x2="172" y2="168" stroke="rgba(74,124,64,0.26)" stroke-width="0.6"/>
+    <path d="M254 140 C272 120 294 122 302 108 C310 94 298 80 282 86 C266 92 258 116 254 140Z" stroke="rgba(74,124,64,0.38)" stroke-width="0.8" fill="none"/>
+    <line x1="254" y1="140" x2="292" y2="90" stroke="rgba(74,124,64,0.25)" stroke-width="0.5"/>
+    <path d="M253 110 C238 92 218 95 210 82 C202 69 212 56 226 62 C240 68 248 90 253 110Z" stroke="rgba(74,124,64,0.35)" stroke-width="0.8" fill="none"/>
+    <!-- Flower top -->
+    <circle cx="260" cy="22" r="14" stroke="rgba(196,134,42,0.5)" stroke-width="0.9" fill="none"/>
+    <circle cx="260" cy="22" r="6" stroke="rgba(196,134,42,0.6)" stroke-width="0.8" fill="none"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(0,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(45,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(90,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(135,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(180,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(225,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(270,260,22)"/>
+    <ellipse cx="260" cy="5" rx="3.5" ry="7" stroke="rgba(196,134,42,0.4)" stroke-width="0.7" fill="none" transform="rotate(315,260,22)"/>
+    <!-- Ground wildflowers -->
+    <circle cx="140" cy="648" r="7" stroke="rgba(196,134,42,0.45)" stroke-width="0.8" fill="none"/>
+    <line x1="140" y1="641" x2="140" y2="658" stroke="rgba(74,124,64,0.5)" stroke-width="1"/>
+    <circle cx="390" cy="645" r="6" stroke="rgba(74,124,64,0.4)" stroke-width="0.8" fill="none"/>
+    <line x1="390" y1="639" x2="390" y2="653" stroke="rgba(74,124,64,0.4)" stroke-width="1"/>
+    <!-- Floating seeds -->
+    <line x1="420" y1="280" x2="440" y2="260" stroke="rgba(74,124,64,0.28)" stroke-width="0.7"/>
+    <circle cx="440" cy="260" r="2" stroke="rgba(74,124,64,0.35)" stroke-width="0.7" fill="none"/>
+    <line x1="430" y1="310" x2="458" y2="292" stroke="rgba(74,124,64,0.22)" stroke-width="0.6"/>
+    <circle cx="458" cy="292" r="1.8" stroke="rgba(74,124,64,0.3)" stroke-width="0.6" fill="none"/>
+    <line x1="118" y1="182" x2="92" y2="160" stroke="rgba(74,124,64,0.22)" stroke-width="0.6"/>
+    <circle cx="92" cy="160" r="1.8" stroke="rgba(74,124,64,0.28)" stroke-width="0.6" fill="none"/>
+  </svg>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-bg" id="about">
+  <div class="sec-chip">About me</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="sec-h">Science that starts and ends with <em>people</em></h2>
+      <p>
+        I'm a PhD student in <strong>Human Genetics at Vanderbilt University</strong>, where I work in the Below Lab at the Vanderbilt Genetics Institute. My current research focuses on the genetic and phenotypic landscape of complex chronic conditions — including celiac disease, osteoarthritis, and hypophosphatasia — using computational approaches.
+      </p>
+      <p>
+        Before Vanderbilt, I spent two years as a <strong>Post-Baccalaureate IRTA Fellow at the NIH</strong>, split between the Marini Lab (studying osteogenesis imperfecta in human primary cells and mouse models) and the Zheng Lab (working with iPSCs and liver organoids to understand Alagille syndrome). That time gave me deep roots in both wet lab work and early computational thinking.
+      </p>
+      <div class="patient-callout">
+        <p>"For many of the people whose conditions I study, a diagnosis has taken years — sometimes decades. That's the clock I keep in mind. Understanding rare and complex diseases isn't just a scientific puzzle; it's a step toward giving people their lives back."</p>
+      </div>
+      <p>
+        I also believe science should be legible to the people it affects most. Outside the lab, I write, make art, and look for ways to share what I learn in ways that actually land.
+      </p>
+    </div>
+    <div class="about-side">
+
+      <div class="about-card">
+        <div class="about-card-leaf">
+          <svg width="26" height="33" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.6"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+        <h4>Current focus</h4>
+        <p>Computational genetics of complex chronic disease — celiac disease, osteoarthritis, hypophosphatasia — at the Vanderbilt Genetics Institute.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-leaf">
+          <svg width="26" height="33" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(15deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.6"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+        <h4>Wet lab background</h4>
+        <p>Extensive experience in human primary cell culture, iPSC work, mouse models, and molecular biology — from Georgetown through the NIH.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-leaf">
+          <svg width="26" height="33" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(-12deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.6"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.5" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#c4862a" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#c4862a" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+        <h4>Patient perspective</h4>
+        <p>I bring a personal understanding of navigating a complex health condition, which shapes how I think about who research is ultimately for.</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-leaf">
+          <svg width="26" height="33" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(8deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.6"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#4a7c40" stroke-width="0.5" fill="none"/>
+          </svg>
+        </div>
+        <h4>Why it matters</h4>
+        <p>Rare disease patients wait an average of 5–7 years for a diagnosis. Better science, communicated well, can change that timeline for real families.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section research-bg" id="research">
+  <div class="sec-chip">Research</div>
+  <h2 class="sec-h">What I work on — and <em>what it means</em></h2>
+  <p class="sec-intro">Each project is shown side by side: the scientific framing on the left, a plain-language version on the right. A zine version is coming for some of these too.</p>
+
+  <div class="r-project">
+    <div class="r-project-top">
+      <div class="r-col">
+        <div class="r-area">Computational Genetics · Complex Disease</div>
+        <h3>Genetic architecture of celiac disease beyond HLA</h3>
+        <p>Investigating genetic associations in celiac disease among carriers of permissive HLA-DQ haplotypes, using computational approaches to characterize both the genetic and phenotypic landscape of this complex condition.</p>
+        <div class="r-tags"><span class="r-tag">GWAS</span><span class="r-tag">HLA haplotypes</span><span class="r-tag">Celiac disease</span><span class="r-tag">Computational</span></div>
+      </div>
+      <div class="r-col r-col-plain">
+        <h3>Why do some people with celiac risk genes stay healthy?</h3>
+        <p>Celiac disease is strongly linked to certain immune gene variants — but many people who carry those variants never develop the condition. We're asking: what other genetic factors tip the balance? Understanding this could point toward new ways to predict, prevent, or treat celiac disease.</p>
+        <div class="r-why">
+          <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.6" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="1"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+          </svg>
+          <span>Presented at DDW 2026 and ASHG 2025.</span>
+        </div>
+      </div>
+    </div>
+    <div class="zine-bar"><span class="zine-label">Zine version</span><span class="zine-chip">Coming soon</span></div>
+  </div>
+
+  <div class="r-project">
+    <div class="r-project-top">
+      <div class="r-col">
+        <div class="r-area">Rare Disease · Functional Genetics</div>
+        <h3>Novel variant discovery in osteogenesis imperfecta</h3>
+        <p>Characterized a moderately severe OI-like osteochondrodysplasia in a patient carrying autosomal dominant mutations in both <em>COL1A2</em> and <em>TRPV4</em> — a rare co-occurrence with significant phenotypic implications.</p>
+        <div class="r-tags"><span class="r-tag">OI</span><span class="r-tag">COL1A2</span><span class="r-tag">TRPV4</span><span class="r-tag">Variant discovery</span></div>
+      </div>
+      <div class="r-col r-col-plain">
+        <h3>A patient with two rare bone mutations — what does that mean?</h3>
+        <p>Osteogenesis imperfecta (OI) is a condition where bones break more easily than normal, usually caused by changes in collagen genes. We studied a patient who had changes in two different genes at once — a rare combination — and worked out how those mutations interact to produce their specific symptoms. Published in <em>JBMR Plus</em>, 2025.</p>
+        <div class="r-why">
+          <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.6" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="1"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+          </svg>
+          <span>This kind of detailed case work helps clinicians recognize and understand similar patients faster.</span>
+        </div>
+      </div>
+    </div>
+    <div class="zine-bar"><span class="zine-label">Zine version</span><span class="zine-chip">Coming soon</span></div>
+  </div>
+
+  <div class="r-project">
+    <div class="r-project-top">
+      <div class="r-col">
+        <div class="r-area">iPSC Biology · Alagille Syndrome</div>
+        <h3>iPSC lines and CRISPR correction for Alagille syndrome</h3>
+        <p>Generated and characterized iPSC lines from two patients with Alagille syndrome carrying heterozygous <em>JAG1</em> mutations, and developed CRISPR/Cas9-corrected isogenic lines for therapeutic screening and disease modeling.</p>
+        <div class="r-tags"><span class="r-tag">iPSC</span><span class="r-tag">CRISPR</span><span class="r-tag">JAG1</span><span class="r-tag">Alagille syndrome</span></div>
+      </div>
+      <div class="r-col r-col-plain">
+        <h3>Building a "disease in a dish" to test treatments for Alagille syndrome</h3>
+        <p>Alagille syndrome is a rare genetic condition that affects the liver and other organs. Using cells donated by patients, we grew them into a type of stem cell that can become almost any cell in the body — then used genetic editing tools to "fix" the mutation. These corrected cells let us test potential treatments in a system that closely mirrors a real patient. Published in <em>Stem Cell Research</em>, 2025.</p>
+        <div class="r-why">
+          <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.6" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="1"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+          </svg>
+          <span>These cell lines are shared openly so other researchers can use them too.</span>
+        </div>
+      </div>
+    </div>
+    <div class="zine-bar"><span class="zine-label">Zine version</span><span class="zine-chip">Coming soon</span></div>
+  </div>
+
+  <div class="r-project">
+    <div class="r-project-top">
+      <div class="r-col">
+        <div class="r-area">Review · Rare Disease Therapeutics</div>
+        <h3>Therapeutic approaches to haploinsufficiency diseases</h3>
+        <p>A review of current and emerging strategies to restore protein levels in diseases caused by haploinsufficiency — where one functional gene copy is insufficient for normal biology.</p>
+        <div class="r-tags"><span class="r-tag">Haploinsufficiency</span><span class="r-tag">Drug discovery</span><span class="r-tag">Rare disease</span><span class="r-tag">Review</span></div>
+      </div>
+      <div class="r-col r-col-plain">
+        <h3>When half a gene isn't enough — how might we fix that?</h3>
+        <p>Some conditions happen because a person only has one working copy of a gene instead of two, and that single copy can't do the job alone. We reviewed all the different scientific strategies being explored to restore normal protein levels in these situations — from gene therapy to small molecules. Published in <em>Drug Discovery Today</em>, 2024.</p>
+        <div class="r-why">
+          <svg width="14" height="18" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;margin-top:2px">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.6" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="1"/>
+            <path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C13 27 11 25 9 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+            <path d="M16 30 C19 27 21 25 23 23" stroke="#c4862a" stroke-width="0.9" fill="none"/>
+          </svg>
+          <span>This review helps researchers see the full therapeutic landscape and avoid reinventing the wheel.</span>
+        </div>
+      </div>
+    </div>
+    <div class="zine-bar"><span class="zine-label">Zine version</span><span class="zine-chip">Coming soon</span></div>
+  </div>
+
+</section>
+
+<!-- CREATIVE -->
+<section class="section creative-bg" id="creative">
+  <div class="sec-chip">Creative work</div>
+  <h2 class="sec-h">Beyond the lab</h2>
+  <p class="sec-intro">Science isn't the only way I make sense of the world. I write and make things — often about the same themes I explore in my research, just through a different lens.</p>
+  <div class="creative-groups">
+
+    <div class="creative-group">
+      <div class="creative-group-header">
+        <svg width="24" height="30" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.1" fill="none"/>
+          <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.7"/>
+          <path d="M16 22 C13 19 10 17 8 14" stroke="#4a7c40" stroke-width="0.55" fill="none"/>
+          <path d="M16 22 C19 19 22 17 24 14" stroke="#4a7c40" stroke-width="0.55" fill="none"/>
+          <path d="M16 30 C13 27 11 25 9 23" stroke="#4a7c40" stroke-width="0.55" fill="none"/>
+          <path d="M16 30 C19 27 21 25 23 23" stroke="#4a7c40" stroke-width="0.55" fill="none"/>
+        </svg>
+        <h3>Writing</h3>
+      </div>
+      <div class="creative-items">
+        <div class="creative-item">
+          <svg class="ci-leaf" width="12" height="16" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/>
+          </svg>
+          <div>
+            <h4>Personal essays</h4>
+            <p>Writing about rare disease, science, and what it's like to live at the intersection of patient and researcher. Add links to your published pieces here.</p>
+          </div>
+        </div>
+        <div class="creative-item">
+          <svg class="ci-leaf" width="12" height="16" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(10deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/>
+          </svg>
+          <div>
+            <h4>Science communication</h4>
+            <p>Talks, threads, and public writing — including an invited presentation at the Celiac Disease National Policy Symposium.</p>
+          </div>
+        </div>
+        <div class="creative-item">
+          <svg class="ci-leaf" width="12" height="16" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(-8deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#4a7c40" stroke-width="1.4" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#4a7c40" stroke-width="0.9"/>
+          </svg>
+          <div>
+            <h4>Zines</h4>
+            <p>Plain-language zine versions of my research papers — in progress. A format that puts findings in the hands of the communities they're about.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="creative-group">
+      <div class="creative-group-header">
+        <svg width="24" height="30" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(-14deg)">
+          <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.1" fill="none"/>
+          <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.7"/>
+          <path d="M16 22 C13 19 10 17 8 14" stroke="#c4862a" stroke-width="0.55" fill="none"/>
+          <path d="M16 22 C19 19 22 17 24 14" stroke="#c4862a" stroke-width="0.55" fill="none"/>
+          <path d="M16 30 C13 27 11 25 9 23" stroke="#c4862a" stroke-width="0.55" fill="none"/>
+          <path d="M16 30 C19 27 21 25 23 23" stroke="#c4862a" stroke-width="0.55" fill="none"/>
+        </svg>
+        <h3>Arts &amp; crafts</h3>
+      </div>
+      <div class="creative-items">
+        <div class="creative-item">
+          <svg class="ci-leaf" width="12" height="16" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.4" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.9"/>
+          </svg>
+          <div>
+            <h4>Mosaics</h4>
+            <p>Tile and mixed-media mosaics — a medium that mirrors something I love about science: small fragments combining into a coherent whole.</p>
+          </div>
+        </div>
+        <div class="creative-item">
+          <svg class="ci-leaf" width="12" height="16" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(-10deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.4" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.9"/>
+          </svg>
+          <div>
+            <h4>Painting</h4>
+            <p>Paintings in whatever medium fits the moment. Add images or descriptions of pieces you'd like to share here.</p>
+          </div>
+        </div>
+        <div class="creative-item">
+          <svg class="ci-leaf" width="12" height="16" viewBox="0 0 32 42" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="transform:rotate(12deg)">
+            <path d="M16 40 C10 32 3 22 7 10 C10 3 22 3 25 10 C29 22 22 32 16 40Z" stroke="#c4862a" stroke-width="1.4" fill="none"/>
+            <line x1="16" y1="40" x2="16" y2="10" stroke="#c4862a" stroke-width="0.9"/>
+          </svg>
+          <div>
+            <h4>Cornhole boards &amp; other projects</h4>
+            <p>Hand-painted and custom-designed — because applied art is still art. Other makes that don't fit neatly into a category also live here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-bg" id="contact">
+  <div class="sec-chip">Get in touch</div>
+  <div class="contact-grid">
+    <div>
+      <h2 class="sec-h">I'd love to <em>hear from you</em></h2>
+      <p class="sec-intro">Whether you're a researcher, clinician, patient, family member, or just curious — please reach out.</p>
+      <div class="contact-warm">
+        <p>If you or someone you know is living with a rare or complex disease and has questions about the science, I'm genuinely happy to talk. Understanding what's happening in your body shouldn't require a PhD.</p>
+      </div>
+      <div class="link-list">
+        <a href="mailto:elena.f.evans@vanderbilt.edu" class="clink"><div class="clink-dot">@</div><span>elena.f.evans@vanderbilt.edu</span></a>
+        <a href="https://orcid.org/0009-0007-5459-8254" class="clink"><div class="clink-dot">iD</div><span>ORCID: 0009-0007-5459-8254</span></a>
+        <a href="https://linkedin.com" class="clink"><div class="clink-dot">in</div><span>LinkedIn</span></a>
+        <a href="https://scholar.google.com" class="clink"><div class="clink-dot">Gs</div><span>Google Scholar</span></a>
+        <a href="https://github.com" class="clink"><div class="clink-dot">gh</div><span>GitHub</span></a>
+      </div>
+    </div>
+    <div class="form-area">
+      <input type="text" placeholder="Your name"/>
+      <input type="email" placeholder="Your email"/>
+      <input type="text" placeholder="Researcher, patient, clinician, or other?"/>
+      <textarea placeholder="What's on your mind? No question is too basic."></textarea>
+      <button class="btn-sun">Send a message →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Elena Evans · Human Genetics, Vanderbilt University</span>
+  <span>Made with curiosity &amp; care</span>
+</footer>
+
+</body>
+</html>
