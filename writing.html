@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Writing · Elena Evans</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Nunito:wght@300;400;500;600&family=Fira+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sun:#f5c46a;--sun-light:#fdf0c8;
+  --meadow:#7aaa6e;--meadow-deep:#4a7c40;
+  --sage:#a8c49a;--sage-pale:#deecd7;
+  --sky:#c8e0f0;--sky-pale:#edf5fb;
+  --sand:#f0e6d0;--sand-deep:#d4b896;
+  --soil:#7a5c3a;--bark:#4a3420;
+  --stone:#8a8070;--ink:#2a2418;
+  --cream:#faf7f0;--white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+
+/* NAV (same as index) */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem;background:rgba(250,247,240,0.94);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--sage-pale)}
+.nav-name{font-family:'Lora',serif;font-size:1rem;color:var(--meadow-deep);text-decoration:none}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-size:0.8rem;font-weight:500;color:var(--stone);text-decoration:none;transition:color 0.2s;letter-spacing:0.02em}
+.nav-links a:hover,.nav-links a.current{color:var(--meadow-deep)}
+
+/* PAGE HEADER */
+.page-head{padding:8rem 4rem 3rem;background:linear-gradient(160deg,var(--sky-pale) 0%,var(--sage-pale) 60%,var(--sun-light) 100%)}
+.page-head h1{font-family:'Lora',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;color:var(--bark);margin-bottom:0.6rem}
+.page-head p{font-size:0.95rem;color:var(--soil);line-height:1.85;max-width:560px}
+.back{display:inline-block;margin-bottom:1.2rem;font-size:0.8rem;font-weight:600;color:var(--meadow-deep);text-decoration:none;border-bottom:1px solid var(--sage)}
+
+/* PIECES */
+.pieces{max-width:760px;margin:0 auto;padding:3.5rem 1.5rem 5rem}
+.piece{background:var(--white);border:1.5px solid var(--sage-pale);border-radius:1rem;overflow:hidden;margin-bottom:3rem}
+.piece-img{display:block;width:100%;height:auto}
+.piece-body{padding:2rem 2.2rem 2.4rem}
+.piece-date{font-family:'Fira Mono',monospace;font-size:0.68rem;letter-spacing:0.1em;color:var(--meadow-deep);margin-bottom:0.6rem}
+.piece h2{font-family:'Lora',serif;font-size:clamp(1.4rem,2.6vw,1.8rem);font-weight:400;line-height:1.3;color:var(--bark);margin-bottom:1.4rem}
+.piece p{font-size:0.97rem;line-height:1.9;color:var(--soil);margin-bottom:1.1rem}
+.piece p a{color:var(--meadow-deep);text-decoration:none;border-bottom:1px solid var(--sage)}
+.piece p a:hover{background:var(--sage-pale)}
+.piece p.pull{margin:1.8rem 0;padding:1.2rem 1.5rem;background:var(--sun-light);border-left:3px solid var(--sun);border-radius:0 0.75rem 0.75rem 0;font-family:'Lora',serif;font-style:italic;font-size:1.05rem;line-height:1.7}
+.piece p:last-child{margin-bottom:0}
+
+footer{background:var(--bark);color:rgba(250,247,240,0.45);padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center;font-family:'Fira Mono',monospace;font-size:0.62rem;letter-spacing:0.1em}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}.nav-links{gap:1.2rem}
+  .page-head{padding:6rem 1.5rem 2.5rem}
+  .piece-body{padding:1.5rem 1.4rem 1.8rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.2rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">Elena Evans</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="index.html#creative">Creative</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="page-head">
+  <a href="index.html#creative" class="back">← Back to creative work</a>
+  <h1>Writing</h1>
+  <p>Science, what it's like to live at the intersection of patient and researcher, and whatever else feels like it needs to be said.</p>
+</header>
+
+<main class="pieces">
+
+<!--
+  ============================================================
+  HOW TO ADD A NEW PIECE
+  1. Compress the image to WebP (under 300KB, Squoosh) and put it in
+     the images/ folder with a lowercase filename.
+  2. Copy the whole <article> template below.
+  3. Paste it directly under the "NEW PIECES GO HERE" line so the
+     newest piece shows first.
+  4. Fill in the image filename, alt text, date, title, and paragraphs.
+  Links:  <a href="https://..." target="_blank" rel="noopener">link text</a>
+  Pull-out line: use <p class="pull">...</p> for any paragraph you want highlighted.
+
+  <article class="piece">
+    <img class="piece-img" src="images/FILENAME.webp" alt="Describe the image">
+    <div class="piece-body">
+      <div class="piece-date">Month Year</div>
+      <h2>Title</h2>
+      <p>First paragraph.</p>
+      <p>Second paragraph.</p>
+    </div>
+  </article>
+  ============================================================
+-->
+
+<!-- NEW PIECES GO HERE -->
+
+<article class="piece" id="orexin">
+  <img class="piece-img" src="images/orexin_post.webp" alt="Illustrations of a patient under anesthesia, a dizzy cartoon brain, and a salt shaker">
+  <div class="piece-body">
+    <div class="piece-date">August 2026</div>
+    <h2>A first-in-class drug for narcolepsy, and what it took to get here</h2>
+
+    <p>As a scientist and someone who was diagnosed with narcolepsy, it’s pretty exciting to see that <a href="https://www.nature.com/articles/d41573-026-00135-0?utm_source=Live+Audience&amp;utm_campaign=e2b449d6f7-nature-briefing-translational-research-20260812&amp;utm_medium=email&amp;utm_term=0_-928f7c52f0-499595985" target="_blank" rel="noopener">a few days ago the FDA approved oveporexton (Orzeful)</a>. Oveporexton is a first in class drug that acts as an agonist, mimicking the action of orexins (hypocretins), to treat narcolepsy type 1.</p>
+
+    <p>Narcolepsy is characterized by excess daytime sleepiness and REM sleep during naps. Type 1 used to be referred to as narcolepsy with cataplexy, which is muscle weakness triggered by strong emotions.</p>
+
+    <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC18213/" target="_blank" rel="noopener">Two</a> research <a href="https://www.cell.com/cell/fulltext/S0092-8674(00)80949-6?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS0092867400809496%3Fshowall%3Dtrue" target="_blank" rel="noopener">groups</a> first connected orexins with narcolepsy in <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3082766/#B17" target="_blank" rel="noopener">1998</a>, and the first treatment (Xyrem) to address cataplexy for patients with narcolepsy was <a href="https://www.biospace.com/jazz-pharmaceuticals-inc-release-xyrem-r-receives-fda-approval-for-the-treatment-of-excessive-daytime-sleepiness-in-patients-with-narcolepsy" target="_blank" rel="noopener">approved by the FDA in October of 2002</a>. Oveporexton is the first FDA approved drug to target orexin.</p>
+
+    <p>This new class of drugs, orexin-receptor agonists, have already been referred to as the <a href="https://www.nature.com/articles/d41573-026-00135-0?utm_source=Live+Audience&amp;utm_campaign=e2b449d6f7-nature-briefing-translational-research-20260812&amp;utm_medium=email&amp;utm_term=0_-928f7c52f0-499595985" target="_blank" rel="noopener">“GLP-1 of neuroscience.”</a> I am thrilled there is a treatment for narcolepsy type 1 that targets the underlying physiology, and hopeful at the potential to treat additional complex chronic disorders.</p>
+
+    <p>Although I was originally diagnosed with narcolepsy, it was later corrected to idiopathic hypersomnia (IH). IH is very similar to narcolepsy, but IH tends to involve sleeping longer without feeling rested and sleep attacks, but no REM during naps. The first FDA approved drug for IH was <a href="https://aasm.org/fda-approves-new-indication-for-xywav-for-idiopathic-hypersomnia" target="_blank" rel="noopener">Xywav in 2021</a>.</p>
+
+    <p>Xyrem and Xywav are <a href="https://www.cafermed.com/post/xyrem-xywav" target="_blank" rel="noopener">very similar compounds</a>, in fact Xywav was developed to reduce the sodium content in Xyrem. Both medications are made of gamma-hydroxybutyrate (GHB), which was <a href="https://pdf.benchchem.com/1227/A_Technical_Guide_to_the_Discovery_and_History_of_Gamma_Hydroxybutyric_Acid_GHB_Research.pdf" target="_blank" rel="noopener">reported in 1960</a> to work for anesthesia. The active ingredient didn't change, yet only Xywav made a difference in my symptoms.</p>
+
+    <p class="pull">In other words, a medication that puts people to sleep helps overly sleepy people, and some of them require less salt.</p>
+
+    <p>Science is rarely a straight line from discovery to clinical treatment, it is built by ideas, collaborations, experiments, revisions, and corrections.</p>
+
+    <p>Breakthroughs like this remind me of how powerful research can be and how important it is to build a system that ensures cost and access aren’t the barrier to these discoveries.</p>
+  </div>
+</article>
+
+</main>
+
+<footer>
+  <span>© 2026 Elena Evans(brook) </span>
+  <span>Made with curiosity &amp; cute cats</span>
+</footer>
+
+</body>
+</html>
